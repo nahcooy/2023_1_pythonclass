@@ -83,7 +83,7 @@ def average(tavg):
 
 def topthree(tmax):
     cp_tmax = sorted(tmax)
-    return cp_tmax[len(cp_tmax)-1], cp_tmax[len(cp_tmax)-2], cp_tmax[len(cp_tmax)-3]
+    return cp_tmax[-1], cp_tmax[-2], cp_tmax[-3]
 
 def main():
     filename = "weather.csv"

@@ -83,8 +83,8 @@ def maximum_temp_gap(dates, tmax, tmin):
 def gdd(dates, tavg):
     integrated_temperature = 0
     for i in range(len(dates)):
-        if dates[i][1] >= 5 and dates[i][1] <= 9 and tavg[i] >= 15:
-            integrated_temperature += tavg[i] - 15
+        if dates[i][1] >= 5 and dates[i][1] <= 9 and tavg[i] > 5:
+            integrated_temperature += tavg[i] - 5
     return integrated_temperature
 
 

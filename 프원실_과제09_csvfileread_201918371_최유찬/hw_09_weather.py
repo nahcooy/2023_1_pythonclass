@@ -78,6 +78,13 @@ def gdd(dates, tavg):
             integrated_temperature += tavg[i] - 15
     return integrated_temperature
 
+def average(tavg):
+    return sum(tavg)/len(tavg)
+
+def topthree(tmax):
+    cp_tmax = sorted(tmax)
+    return cp_tmax[len(cp_tmax)-1], cp_tmax[len(cp_tmax)-2], cp_tmax[len(cp_tmax)-3]
+
 def main():
     filename = "weather.csv"
     key, data = csv2list(filename)
@@ -99,6 +106,10 @@ def main():
     print(f"일교차가 가장 큰 날짜와 해당일자의 일교차: {max_temdif_date}, {max_temdif:.1f}")
     #7
     print(f"5월부터 9월까지의 적산온도: {gdd(dates, tavg):.1f}")
-
+    #연평균 기온
+    print(f"연평균 기온: {average(tavg):.1f}")
+    #tmax 중 top3
+    print(f"가장 높았던 최고기온 top3: {topthree(tmax)}입니다")
+    
 if __name__=="__main__":
     main()

@@ -115,27 +115,49 @@ def main():
     key, data = csv2list(filename)
     rainfall = raindata(data)
     # print(key, data, rainfall, sep='\n') #list로 만든 데이터 확인
-    # 1
-    print(f"총 강수량: {sum(rainfall):.1f}")
-    # 2
-    print("강우 일수: ", count_rain_days(rainfall))
-    # 3
-    print(f"여름철(6월-8월) 총 강수량: {sumifs(data):.1f}")
-    # 4
-    print("최장 연속 강우 일수: ", longest_rain_days(rainfall))
-    # 5
-    print(f"강우이벤트 중 최대 강수량: {maximum_rainfall_event(rainfall):.1f}")
-    # 6
-    dates, tmax, tavg, tmin = date_temp(data)
-    max_temdif_date, max_temdif = maximum_temp_gap(dates, tmax, tmin)
-    print(f"일교차가 가장 큰 날짜와 해당일자의 일교차: {max_temdif_date}, {max_temdif:.1f}")
-    # 7
-    print(f"5월부터 9월까지의 적산온도: {gdd(dates, tavg):.1f}")
-    # 연평균 기온
-    print(f"연평균 기온: {average(tavg):.1f}")
-    # tmax 중 top3
-    print(f"가장 높았던 최고기온 top3: {topthree(tmax)}입니다")
 
+    with open("output.txt", 'w', encoding = "UTF-8-sig") as f:
+        # 1
+        f.write(f"총 강수량: {sum(rainfall):.1f}\n")
+        # 2
+        f.write("강우 일수: " + str(count_rain_days(rainfall)) + "\n")
+        # 3
+        f.write(f"여름철(6월-8월) 총 강수량: {sumifs(data):.1f}\n")
+        # 4
+        f.write("최장 연속 강우 일수: " + str(longest_rain_days(rainfall)) + "\n")
+        # 5
+        f.write(f"강우이벤트 중 최대 강수량: {maximum_rainfall_event(rainfall):.1f}\n")
+        # 6
+        dates, tmax, tavg, tmin = date_temp(data)
+        max_temdif_date, max_temdif = maximum_temp_gap(dates, tmax, tmin)
+        f.write(f"일교차가 가장 큰 날짜와 해당일자의 일교차: {max_temdif_date}, {max_temdif:.1f}\n")
+        # 7
+        f.write(f"5월부터 9월까지의 적산온도: {gdd(dates, tavg):.1f}\n")
+        # 연평균 기온
+        f.write(f"연평균 기온: {average(tavg):.1f}\n")
+        # tmax 중 top3
+        f.write(f"가장 높았던 최고기온 top3: {topthree(tmax)}입니다\n")
+    print("output.txt에 정상적으로 저장되었습니다")
+    # # 1
+    # print(f"총 강수량: {sum(rainfall):.1f}")
+    # # 2
+    # print("강우 일수: ", count_rain_days(rainfall))
+    # # 3
+    # print(f"여름철(6월-8월) 총 강수량: {sumifs(data):.1f}")
+    # # 4
+    # print("최장 연속 강우 일수: ", longest_rain_days(rainfall))
+    # # 5
+    # print(f"강우이벤트 중 최대 강수량: {maximum_rainfall_event(rainfall):.1f}")
+    # # 6
+    # dates, tmax, tavg, tmin = date_temp(data)
+    # max_temdif_date, max_temdif = maximum_temp_gap(dates, tmax, tmin)
+    # print(f"일교차가 가장 큰 날짜와 해당일자의 일교차: {max_temdif_date}, {max_temdif:.1f}")
+    # # 7
+    # print(f"5월부터 9월까지의 적산온도: {gdd(dates, tavg):.1f}")
+    # # 연평균 기온
+    # print(f"연평균 기온: {average(tavg):.1f}")
+    # # tmax 중 top3
+    # print(f"가장 높았던 최고기온 top3: {topthree(tmax)}입니다")
 
 if __name__ == "__main__":
     main()

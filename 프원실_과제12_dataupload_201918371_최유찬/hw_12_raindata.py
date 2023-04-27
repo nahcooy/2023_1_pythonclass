@@ -37,7 +37,7 @@ def maxtemp(tmm):
     tmaxd, tmax = tmm[0][0], (tmm[0][1]-tmm[0][2])
     for i in range(1, len(tmm)):
         if (tmm[i][1] - tmm[i][2]) > tmax:
-            tmaxd, tmax = tmm[0][0], (tmm[i][1]-tmm[i][2])
+            tmaxd, tmax = tmm[i][0], (tmm[i][1]-tmm[i][2])
     return tmaxd, tmax
 
 def main():

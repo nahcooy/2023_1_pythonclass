@@ -33,8 +33,8 @@ def main():
     key, data = csv2list(filename)
     tmm = date(data)
     max_temp_date, max_temp, tempgap_max_date, tempgap_max = maxtemp(tmm)
-    print(myname, max_temp_date, max_temp, tempgap_max_date, tempgap_max, "가 과제에 제출되었습니다")
-    hw13_submission.submit(myname, max_temp_date, max_temp, tempgap_max_date, tempgap_max)
+    print(myname, max_temp, max_temp_date, tempgap_max, tempgap_max_date, "가 과제에 제출되었습니다")
+    hw13_submission.submit(myname, max_temp, max_temp_date, tempgap_max, tempgap_max_date)
 
 if __name__ == "__main__":
     main()

@@ -90,7 +90,7 @@ def main():
             print("초성게임을 시작합니다")
             for chosung in word:
                 print(f"{chosung}을 초성으로 가진 단어를 입력해주세요")
-                input_word = input()
+                input_word = input().strip()
                 if input_word in word[chosung]:
                     print("맞았습니다")
                 else:

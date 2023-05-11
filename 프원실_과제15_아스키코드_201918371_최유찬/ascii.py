@@ -15,12 +15,12 @@ def caesar_encode(text: str, shift: int = 3):
     caesar_text = ""
     for c in text:
         if ord(c) >= 65 and ord(c) <= 90:
-            shifted_c = ord(c) + 3
+            shifted_c = ord(c) + shift
             if shifted_c > 90:
                 shifted_c = shifted_c - 26
             caesar_text += chr(shifted_c)
         elif ord(c) >= 97 and ord(c) <= 122:
-            shifted_c = ord(c) + 3
+            shifted_c = ord(c) + shift
             if shifted_c > 122:
                 shifted_c = shifted_c - 26
             caesar_text += chr(shifted_c)
@@ -33,12 +33,12 @@ def caesar_decode(caesar_text: str, shift: int = 3):
     decode_text = ""
     for c in caesar_text:
         if ord(c) >= 65 and ord(c) <= 90:
-            shifted_c = ord(c) - 3
+            shifted_c = ord(c) - shift
             if shifted_c < 65:
                 shifted_c = shifted_c + 26
             decode_text += chr(shifted_c)
         elif ord(c) >= 97 and ord(c) <= 122:
-            shifted_c = ord(c) - 3
+            shifted_c = ord(c) - shift
             if shifted_c < 97:
                 shifted_c = shifted_c + 26
             decode_text += chr(shifted_c)
@@ -87,7 +87,15 @@ def main():
                 text = input()
                 caesar_decode(text)
         if n == '3':
-            print(word)
+            print("초성게임을 시작합니다")
+            for chosung in word:
+                print(f"{chosung}을 초성으로 가진 단어를 입력해주세요")
+                input_word = input()
+                if input_word in word[chosung]:
+                    print("맞았습니다")
+                else:
+                    print("틀렸습니다")
+            print("초성게임을 종료합니다")
     return
 
 if __name__=="__main__":

@@ -48,7 +48,15 @@ def caesar_decode(caesar_text: str, shift: int = 3):
     print(decode_text)
 
 def main():
+    word = dict()
+    word['ㄱㄴ'] = []  # 'ㄱㄴ' 키 추가
+    filename = 'ㄱㄴ.txt'
+    with open(filename, 'r', encoding='utf-8') as file:
+        for line in file:
+            for w in line.split():
+                word['ㄱㄴ'].append(w)
     while True:
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print("이용하고 싶은 기능의 번호를 입력하시오")
         print("1번: 문자열 대문자 소문자 변경")
         print("2번: 카이사르 암호")
@@ -79,7 +87,7 @@ def main():
                 text = input()
                 caesar_decode(text)
         if n == '3':
-            print("초성게임")
+            print(word)
     return
 
 if __name__=="__main__":
